@@ -7,4 +7,9 @@ export function setupLights(scene) {
   const directional = new DirectionalLight(0xffffff, 1);
   directional.position.set(5, 10, 5);
   scene.add(directional);
+
+  return {
+    ambient,
+    directional
+  };
 }

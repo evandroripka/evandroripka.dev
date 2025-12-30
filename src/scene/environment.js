@@ -23,3 +23,21 @@ export function setupEnvironment(scene) {
     building: cube
   };
 }
+import { Color, Fog } from 'three';
+import { ENV_PRESETS } from './presets';
+
+export function applyEnvironmentPreset(scene, lights, presetName) {
+  const preset = ENV_PRESETS[presetName];
+  if (!preset) return;
+
+  scene.background = new Color(preset.background);
+  scene.fog = new Fog(
+    preset.fog.color,
+    preset.fog.near,
+    preset.fog.far
+  );
+
+  lights.ambient.intensity = preset.ambientIntensity;
+  lights.directional.intensity = preset.directionalIntensity;
+  lights.directional.color.set(preset.directionalColor);
+}
