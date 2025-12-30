@@ -2,7 +2,7 @@ import { Scene, Color } from 'three';
 import { createCamera } from './camera';
 import { setupLights } from './lights';
 import { setupEnvironment } from './environment';
-import { applyEnvironmentPreset } from './environment';
+import { transitionEnvironmentPreset } from './environment';
 import { getTimeOfDay } from '../systems/timeSystem';
 
 export function setupScene() {
@@ -13,12 +13,17 @@ export function setupScene() {
   const lights = setupLights(scene);
   setupEnvironment(scene);
 
-  const timeOfDay = getTimeOfDay();
-  applyEnvironmentPreset(scene, lights, timeOfDay);
+  // initial preset
+  let current = getTimeOfDay();
+  transitionEnvironmentPreset(scene, lights, current, { duration: 0.0 });
 
-  return {
-    scene,
-    camera,
-    lights
-  };
+  // TEMP: press "T" to toggle day/night (great for testing)
+  window.addEventListener('keydown', (e) => {
+    if (e.key.toLowerCase() !== 't') return;
+    const next = current === 'day' ? 'night' : 'day';
+    current = next;
+    transitionEnvironmentPreset(scene, lights, current, { duration: 1.2 });
+  });
+
+  return { scene, camera, lights };
 }
