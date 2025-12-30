@@ -20,6 +20,22 @@ export const ENV_PRESETS = {
       color: 0xd68ede,
       near: 5,
       far: 25
-    }
+    },
+
+    day_rain: {
+      background: 0x8ea3b2,
+      ambientIntensity: 0.7,
+      directionalIntensity: 0.9,
+      directionalColor: 0xcfe6ff,
+      fog: { color: 0x8ea3b2, near: 6, far: 22 }
+    },
+
+    night_rain: {
+      background: 0x070a10,
+      ambientIntensity: 0.18,
+      directionalIntensity: 0.45,
+      directionalColor: 0x4f86ff,
+      fog: { color: 0x070a10, near: 3, far: 16 }
+    },
   }
 };
