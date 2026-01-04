@@ -6,14 +6,10 @@ import {
   AdditiveBlending,
 } from 'three';
 
-/**
- * Lightweight rain using THREE.Points.
- * - Fast enough for hero section
- * - Easy to toggle on/off
- */
 export function createRain({
   count = 3000,
   area = { x: 18, y: 10, z: 18 },
+  wind = { x: 1.5, z: 0.4 },
   speed = 12,
   size = 0.03,
   opacity = 0.55,
@@ -26,7 +22,6 @@ export function createRain({
     positions[i3 + 0] = (Math.random() - 0.5) * area.x;
     positions[i3 + 1] = Math.random() * area.y;
     positions[i3 + 2] = (Math.random() - 0.5) * area.z;
-
     velocities[i] = speed * (0.6 + Math.random() * 0.8);
   }
 
@@ -51,6 +46,7 @@ export function createRain({
     count,
     area,
     velocities,
+    wind,
   };
 
   function setEnabled(on) {
@@ -62,14 +58,24 @@ export function createRain({
     if (!state.enabled) return;
 
     const pos = geometry.attributes.position.array;
+    const halfX = state.area.x / 2;
+    const halfZ = state.area.z / 2;
 
     for (let i = 0; i < state.count; i++) {
       const i3 = i * 3;
 
-      // move down
+      // fall + wind drift (EVERY FRAME)
       pos[i3 + 1] -= state.velocities[i] * delta;
+      pos[i3 + 0] += state.wind.x * delta;
+      pos[i3 + 2] += state.wind.z * delta;
 
-      // respawn at the top when it goes below ground
+      // wrap x/z so rain stays inside volume
+      if (pos[i3 + 0] > halfX) pos[i3 + 0] = -halfX;
+      if (pos[i3 + 0] < -halfX) pos[i3 + 0] = halfX;
+      if (pos[i3 + 2] > halfZ) pos[i3 + 2] = -halfZ;
+      if (pos[i3 + 2] < -halfZ) pos[i3 + 2] = halfZ;
+
+      // respawn at top if below ground
       if (pos[i3 + 1] < -1) {
         pos[i3 + 0] = (Math.random() - 0.5) * state.area.x;
         pos[i3 + 1] = state.area.y;
@@ -80,5 +86,5 @@ export function createRain({
     geometry.attributes.position.needsUpdate = true;
   }
 
-  return { points, setEnabled, update, state };
+  return { points, material, setEnabled, update, state };
 }

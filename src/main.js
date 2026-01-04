@@ -37,3 +37,6 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+window.addEventListener('unhandledrejection', (e) => {
+  console.warn('[unhandledrejection]', e.reason);
+});
