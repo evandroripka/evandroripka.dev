@@ -16,6 +16,8 @@ import { startTimeWatcher, getTimeOfDay } from '../systems/timeSystem';
 import { getUserWeather } from '../systems/weatherSystem';
 import { createEnvState } from '../systems/envState';
 
+export const BLOOM_LAYER = 1;
+
 export function setupScene() {
   const scene = new Scene();
   scene.background = new Color(0x0b0e14);
@@ -95,6 +97,7 @@ export function setupScene() {
   // -------------------------
   const neon = new PointLight(0xff2bd6, 1.2, 12, 2);
   neon.position.set(2, 1.5, 1);
+  neon.layers.enable(BLOOM_LAYER);
   scene.add(neon);
   // Bloom layer (only these objects will glow)
  

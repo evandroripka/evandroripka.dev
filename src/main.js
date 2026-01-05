@@ -8,7 +8,7 @@ import {
   Layers,
 } from 'three';
 
-import { setupScene } from './scene/setupScene';
+import { BLOOM_LAYER, setupScene } from './scene/setupScene';
 
 // Postprocessing
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
@@ -61,10 +61,8 @@ renderer.toneMappingExposure = 0.9; // ✅ start lower to avoid blown-out day
 // --------------------
 // Bloom layer
 // --------------------
-const BLOOM_LAYER = 1;
 const bloomLayer = new Layers();
 bloomLayer.set(BLOOM_LAYER);
-neon.layers.enable(BLOOM_LAYER); // make the neon glow
 // --------------------
 // Bloom composer (renders ONLY bloom layer)
 // --------------------
