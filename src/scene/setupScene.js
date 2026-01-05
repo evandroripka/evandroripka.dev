@@ -70,6 +70,16 @@ export function setupScene() {
     emissiveReady = true;
 
     console.log('[building] emissive materials found:', emissiveMats.length);
+    // Mark emissive meshes to bloom
+    building.traverse((obj) => {
+      if (!obj.isMesh) return;
+      const m = obj.material;
+      const arr = Array.isArray(m) ? m : [m];
+
+      const hasEmissive = arr.some((mat) => mat && 'emissive' in mat);
+      if (hasEmissive) obj.layers.enable(BLOOM_LAYER);
+    });
+
   }
 
   function setEmissiveStrength(strength) {
@@ -86,7 +96,8 @@ export function setupScene() {
   const neon = new PointLight(0xff2bd6, 1.2, 12, 2);
   neon.position.set(2, 1.5, 1);
   scene.add(neon);
-
+  // Bloom layer (only these objects will glow)
+ 
   // -------------------------
   // Ground (wet base)
   // -------------------------

@@ -1,8 +1,8 @@
 export const ENV_PRESETS = {
   day: {
     background: 0xbfdcff,
-    ambientIntensity: 0.9,
-    directionalIntensity: 1.2,
+    ambientIntensity: 0.6,
+    directionalIntensity: 0.0,
     directionalColor: 0xffffff,
     fog: {
       color: 0xbfdcff,
