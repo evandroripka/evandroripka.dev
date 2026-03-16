@@ -58,9 +58,9 @@ export default function AboutSection() {
             ref={(el) => {
               cardsRef.current[0] = el
             }}
-            className="rounded-card border border-border bg-surface p-6 transition duration-300 hover:border-border-strong hover:shadow-glow"
+            className="group rounded-card border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-border-strong hover:shadow-glow"
           >
-            <h3 className="text-xl font-semibold text-text-primary">
+            <h3 className="text-xl font-semibold text-text-primary transition-colors duration-300 group-hover:text-white">
               Creative + Technical
             </h3>
             <p className="mt-3 leading-7 text-text-secondary">
@@ -74,9 +74,9 @@ export default function AboutSection() {
             ref={(el) => {
               cardsRef.current[1] = el
             }}
-            className="rounded-card border border-border bg-surface p-6 transition duration-300 hover:border-border-strong hover:shadow-glow"
+            className="group rounded-card border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-border-strong hover:shadow-glow"
           >
-            <h3 className="text-xl font-semibold text-text-primary">
+            <h3 className="text-xl font-semibold text-text-primary transition-colors duration-300 group-hover:text-white">
               Built for Real Operations
             </h3>
             <p className="mt-3 leading-7 text-text-secondary">

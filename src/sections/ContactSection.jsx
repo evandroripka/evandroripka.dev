@@ -43,7 +43,7 @@ export default function ContactSection() {
     <section ref={sectionRef} id="contact" className="px-6 py-24">
       <div
         ref={cardRef}
-        className="mx-auto max-w-5xl rounded-panel border border-border bg-surface p-8 text-center md:p-12"
+        className="mx-auto max-w-5xl rounded-panel border border-border bg-surface p-8 text-center transition-all duration-300 hover:border-border-strong hover:shadow-glow md:p-12"
       >
         <SectionEyebrow className="text-center">
           International Collaboration

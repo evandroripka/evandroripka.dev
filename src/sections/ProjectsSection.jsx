@@ -59,13 +59,13 @@ export default function ProjectsSection() {
               ref={(el) => {
                 cardsRef.current[index] = el
               }}
-              className="rounded-card border border-border bg-surface p-6 transition duration-300 hover:-translate-y-1 hover:border-border-strong hover:shadow-glow"
+              className="group rounded-card border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-border-strong hover:shadow-glow"
             >
               <p className="mb-3 text-xs uppercase tracking-[0.2em] text-accent">
                 {project.category}
               </p>
 
-              <h3 className="text-2xl font-semibold text-text-primary">
+              <h3 className="text-2xl font-semibold text-text-primary transition-colors duration-300 group-hover:text-white">
                 {project.title}
               </h3>
 
@@ -77,7 +77,7 @@ export default function ProjectsSection() {
                 {project.stack.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-border px-3 py-1 text-xs text-text-secondary"
+                    className="rounded-full border border-border px-3 py-1 text-xs text-text-secondary transition-all duration-300 group-hover:border-border-strong group-hover:text-text-primary"
                   >
                     {item}
                   </span>

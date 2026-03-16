@@ -10,15 +10,15 @@ const navItems = [
 export default function Header() {
   return (
     <header className="fixed left-0 top-0 z-50 w-full px-4 pt-4">
-      <div className="mx-auto flex max-w-content items-center justify-between rounded-full border border-border bg-black/30 px-6 py-4 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-content items-center justify-between rounded-full border border-border bg-black/30 px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:border-border-strong">
         <a
           href="/"
           className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.24em] text-text-primary"
         >
           <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent shadow-glow" />
-          <span className="transition group-hover:text-accent">
-            Evandro Ripka
-          </span>
+          <span className="transition-colors duration-300 group-hover:text-accent">
+  Evandro Ripka
+</span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -26,7 +26,7 @@ export default function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-text-secondary transition hover:text-text-primary"
+              className="text-sm text-text-secondary transition-all duration-300 hover:text-text-primary hover:-translate-y-[1px]"
             >
               {item.label}
             </a>

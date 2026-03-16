@@ -65,10 +65,14 @@ export default function JourneySection() {
               ref={(el) => {
                 itemsRef.current[index] = el
               }}
-              className="rounded-[24px] border border-border bg-surface p-5 transition duration-300 hover:border-border-strong hover:shadow-glow"
+              className="group rounded-[24px] border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-[2px] hover:border-border-strong hover:shadow-glow"
             >
-              <span className="mr-3 text-accent">0{index + 1}</span>
-              <span className="text-text-secondary">{step}</span>
+              <span className="mr-3 text-accent transition-colors duration-300 group-hover:text-white">
+                0{index + 1}
+              </span>
+              <span className="text-text-secondary transition-colors duration-300 group-hover:text-text-primary">
+                {step}
+              </span>
             </div>
           ))}
         </div>
