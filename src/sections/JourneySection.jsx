@@ -1,7 +1,16 @@
+import { useLayoutEffect, useRef } from 'react'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import SectionEyebrow from '../components/ui/SectionEyebrow'
 import SectionTitle from '../components/ui/SectionTitle'
+import useReveal from '../hooks/useReveal'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function JourneySection() {
+  const sectionRef = useRef(null)
+  const itemsRef = useRef([])
+
   const steps = [
     'Art, drawing, and anime as the first creative foundation',
     'Computer maintenance and technical problem solving',
@@ -11,8 +20,40 @@ export default function JourneySection() {
     'Custom systems, marketplaces, LMS products, and immersive worlds',
   ]
 
+  useReveal(sectionRef, {
+    y: 50,
+    duration: 1,
+    start: 'top 84%',
+  })
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        itemsRef.current,
+        {
+          autoAlpha: 0,
+          y: 24,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.75,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 70%',
+            once: true,
+          },
+        }
+      )
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section id="journey" className="px-6 py-24">
+    <section ref={sectionRef} id="journey" className="px-6 py-24">
       <div className="mx-auto max-w-content">
         <SectionEyebrow>Career Journey</SectionEyebrow>
         <SectionTitle>A progression from creativity to complex systems.</SectionTitle>
@@ -21,7 +62,10 @@ export default function JourneySection() {
           {steps.map((step, index) => (
             <div
               key={step}
-              className="rounded-[24px] border border-border bg-surface p-5"
+              ref={(el) => {
+                itemsRef.current[index] = el
+              }}
+              className="rounded-[24px] border border-border bg-surface p-5 transition duration-300 hover:border-border-strong hover:shadow-glow"
             >
               <span className="mr-3 text-accent">0{index + 1}</span>
               <span className="text-text-secondary">{step}</span>
