@@ -5,7 +5,7 @@ export default function HeroSection() {
     <section className="relative flex min-h-screen items-center overflow-hidden px-6">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,211,238,0.08),transparent_50%)]" />
 
-      <div className="mx-auto grid max-w-content gap-12 pt-28 md:grid-cols-2 md:items-center">
+      <div className="mx-auto grid max-w-content gap-12 pt-32 md:grid-cols-2 md:items-center">
         <div className="relative z-10">
           <p className="mb-5 text-sm uppercase tracking-[0.3em] text-accent">
             Software Engineer • Product Builder • Interactive Creator

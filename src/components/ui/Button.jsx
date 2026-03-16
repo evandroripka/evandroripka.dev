@@ -4,6 +4,7 @@ export default function Button({
   as: Component = 'button',
   href,
   className = '',
+  ...props
 }) {
   const base =
     'inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition duration-200'
@@ -14,7 +15,11 @@ export default function Button({
   }
 
   return (
-    <Component href={href} className={`${base} ${variants[variant]} ${className}`}>
+    <Component
+      href={href}
+      className={`${base} ${variants[variant]} ${className}`}
+      {...props}
+    >
       {children}
     </Component>
   )
