@@ -38,20 +38,20 @@ function ProjectCard({ project, onMouseEnter, onMouseLeave, compact = false }) {
               <source src={project.video} type="video/mp4" />
             </video>
           ) : null}
+
+          {compact ? null : (
+            <div className="pp-project-info">
+              <div className="pp-project-tech-icon" aria-hidden="true">
+                <ProjectIcon name={project.icon} />
+              </div>
+
+              <div className="pp-project-info-copy">
+                <h3 className="pp-section-title-smaller">{project.title}</h3>
+                <p>{project.summary}</p>
+              </div>
+            </div>
+          )}
         </div>
-
-        {compact ? null : (
-          <div className="pp-project-info">
-            <div className="pp-project-tech-icon" aria-hidden="true">
-              <ProjectIcon name={project.icon} />
-            </div>
-
-            <div className="pp-project-info-copy">
-              <h3 className="pp-section-title-smaller">{project.title}</h3>
-              <p>{project.summary}</p>
-            </div>
-          </div>
-        )}
       </a>
     </article>
   )
