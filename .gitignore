@@ -22,3 +22,40 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#internal checker
+
+# .env files
+.env
+.env.*
+!.env.example
+!.env.*.example
+.env.*.local
+.env.local
+
+# Local agent/editor state
+.codex
+.codex/
+
+# Private keys and certificates
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Legacy source copied only as migration/reference material
+_legacy-source/
+
+#project_context
+PROJECT_CONTEXT.md
+ROADMAP.md
+
+# staging cms
+api/config.local.json
+api/*.local.json
+api/config.*.local.json
+api/config.*.json.local
+storage/uploads/*
+!storage/uploads/.gitkeep
+public/assets/uploads/*
+!public/assets/uploads/.gitkeep

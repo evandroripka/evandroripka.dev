@@ -1,91 +1,205 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-import SectionEyebrow from '../components/ui/SectionEyebrow'
-import SectionTitle from '../components/ui/SectionTitle'
-import { featuredProjects } from '../data/featuredProjects'
-import useReveal from '../hooks/useReveal'
+import { highlights, projects } from '../data/siteContent'
+import Container from '../components/ui/Container'
+import ProjectIcon from '../components/ui/ProjectIcon'
+import { usePinnedProjects } from '../hooks/usePinnedProjects'
+import { useProjectCursor } from '../hooks/useProjectCursor'
 
-gsap.registerPlugin(ScrollTrigger)
+function ProjectCard({ project, onMouseEnter, onMouseLeave, compact = false }) {
+  const [hasVideo, setHasVideo] = useState(false)
+
+  function showVideoPreview(event) {
+    setHasVideo(true)
+    event.currentTarget.play().catch(() => {})
+  }
+
+  return (
+    <article className={['pp-project-card', compact ? 'pp-project-card--compact' : ''].filter(Boolean).join(' ')}>
+      <a
+        href={project.href}
+        className="pp-project-link"
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        <div className={['pp-project-media', hasVideo ? 'has-video' : ''].filter(Boolean).join(' ')}>
+          <img src={project.image} alt={project.alt} loading="lazy" />
+          {project.video ? (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-hidden="true"
+              onCanPlay={showVideoPreview}
+              onError={() => setHasVideo(false)}
+            >
+              <source src={project.video} type="video/mp4" />
+            </video>
+          ) : null}
+        </div>
+
+        {compact ? null : (
+          <div className="pp-project-info">
+            <div className="pp-project-tech-icon" aria-hidden="true">
+              <ProjectIcon name={project.icon} />
+            </div>
+
+            <div className="pp-project-info-copy">
+              <h3 className="pp-section-title-smaller">{project.title}</h3>
+              <p>{project.summary}</p>
+            </div>
+          </div>
+        )}
+      </a>
+    </article>
+  )
+}
 
 export default function ProjectsSection() {
   const sectionRef = useRef(null)
-  const cardsRef = useRef([])
+  const stickyRef = useRef(null)
+  const carouselRef = useRef(null)
+  const carouselTimelineRef = useRef(null)
+  const [homeProjects, setHomeProjects] = useState(projects)
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 960px)').matches)
+  const [carouselIndex, setCarouselIndex] = useState(0)
+  const { cursorRef, moveCursor, showCursor, hideCursor } = useProjectCursor()
 
-  useReveal(sectionRef, {
-    y: 50,
-    duration: 1,
-    start: 'top 82%',
-  })
+  usePinnedProjects(sectionRef, stickyRef)
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        cardsRef.current,
-        {
-          autoAlpha: 0,
-          y: 40,
-        },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.9,
-          stagger: 0.12,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 70%',
-            once: true,
-          },
+  useEffect(() => {
+    let isMounted = true
+
+    fetch('/api/public/projects')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Could not load projects')
         }
-      )
-    }, sectionRef)
 
-    return () => ctx.revert()
+        return response.json()
+      })
+      .then((payload) => {
+        if (isMounted && Array.isArray(payload.projects) && payload.projects.length > 0) {
+          setHomeProjects(payload.projects)
+        }
+      })
+      .catch(() => {})
+
+    return () => {
+      isMounted = false
+    }
   }, [])
 
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 960px)')
+    const updateMobileState = () => setIsMobile(media.matches)
+
+    updateMobileState()
+    media.addEventListener('change', updateMobileState)
+
+    return () => media.removeEventListener('change', updateMobileState)
+  }, [])
+
+  useEffect(() => {
+    if (!isMobile || homeProjects.length <= 2) {
+      return undefined
+    }
+
+    const timer = window.setInterval(() => {
+      const cards = carouselRef.current ? Array.from(carouselRef.current.querySelectorAll('.pp-project-card')) : []
+
+      carouselTimelineRef.current?.kill()
+      carouselTimelineRef.current = gsap.timeline({
+        onComplete: () => {
+          setCarouselIndex((current) => (current + 1) % homeProjects.length)
+        },
+      })
+
+      carouselTimelineRef.current.to(cards, {
+        autoAlpha: 0,
+        y: 18,
+        scale: 0.94,
+        filter: 'blur(8px)',
+        duration: 0.42,
+        stagger: 0.07,
+        ease: 'power2.inOut',
+      })
+    }, 3200)
+
+    return () => {
+      window.clearInterval(timer)
+      carouselTimelineRef.current?.kill()
+    }
+  }, [homeProjects.length, isMobile])
+
+  useEffect(() => {
+    if (!isMobile || !carouselRef.current) {
+      return
+    }
+
+    const cards = Array.from(carouselRef.current.querySelectorAll('.pp-project-card'))
+
+    gsap.fromTo(
+      cards,
+      {
+        autoAlpha: 0,
+        y: -16,
+        scale: 1.04,
+        filter: 'blur(8px)',
+      },
+      {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        filter: 'blur(0px)',
+        duration: 0.64,
+        stagger: 0.09,
+        ease: 'power3.out',
+      },
+    )
+  }, [carouselIndex, isMobile])
+
+  const mobileProjects = isMobile
+    ? [homeProjects[carouselIndex % homeProjects.length], homeProjects[(carouselIndex + 1) % homeProjects.length]].filter(Boolean)
+    : homeProjects
+
   return (
-    <section ref={sectionRef} id="projects" className="px-6 py-24">
-      <div className="mx-auto max-w-content">
-        <div className="mb-12">
-          <SectionEyebrow>Selected Projects</SectionEyebrow>
-          <SectionTitle>Systems, products, and immersive ideas.</SectionTitle>
-        </div>
+    <section
+      ref={sectionRef}
+      id={highlights.id}
+      className="pp-section pp-projects pp-loop-panel"
+      data-panel-pin="self"
+      aria-labelledby="projects-title"
+      onMouseMove={moveCursor}
+    >
+      <Container className="pp-projects-grid">
+        <aside ref={stickyRef} className="pp-projects-sticky">
+          {highlights.kicker ? <p className="pp-section-kicker">{highlights.kicker}</p> : null}
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {featuredProjects.map((project, index) => (
-            <article
-              key={project.slug}
-              ref={(el) => {
-                cardsRef.current[index] = el
-              }}
-              className="group rounded-card border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-border-strong hover:shadow-glow"
-            >
-              <p className="mb-3 text-xs uppercase tracking-[0.2em] text-accent">
-                {project.category}
-              </p>
+          <h2 id="projects-title" className="pp-section-title">
+            {highlights.title}
+          </h2>
 
-              <h3 className="text-2xl font-semibold text-text-primary transition-colors duration-300 group-hover:text-white">
-                {project.title}
-              </h3>
+          <p className="pp-section-text">{highlights.text}</p>
+        </aside>
 
-              <p className="mt-4 text-sm leading-7 text-text-secondary">
-                {project.description}
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {project.stack.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-border px-3 py-1 text-xs text-text-secondary transition-all duration-300 group-hover:border-border-strong group-hover:text-text-primary"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </article>
+        <div ref={carouselRef} className={['pp-projects-list', isMobile ? 'pp-projects-carousel' : ''].filter(Boolean).join(' ')}>
+          {(isMobile ? mobileProjects : homeProjects).map((project) => (
+            <ProjectCard
+              key={project.slug || project.title}
+              project={project}
+              onMouseEnter={showCursor}
+              onMouseLeave={hideCursor}
+              compact={isMobile}
+            />
           ))}
         </div>
+      </Container>
+
+      <div ref={cursorRef} className="pp-project-cursor">
+        {highlights.cursorLabel}
       </div>
     </section>
   )

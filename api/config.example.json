@@ -1,0 +1,37 @@
+{
+  "appName": "Evandro Ripka Staging Base",
+  "sessionName": "evandro_stage_base",
+  "sessionSecret": "replace-me-with-a-long-random-secret",
+  "server": {
+    "host": "127.0.0.1",
+    "port": 3001
+  },
+  "db": {
+    "socketPath": "/run/mysqld/mysqld.sock",
+    "host": "localhost",
+    "port": 3306,
+    "database": "evandroripka_staging_cms",
+    "user": "evandro_stage_cms",
+    "password": "replace-me"
+  },
+  "projectsDb": {
+    "socketPath": "/run/mysqld/mysqld.sock",
+    "host": "localhost",
+    "port": 3306,
+    "database": "evandroripka_projects_cms",
+    "user": "evandro_projects_cms",
+    "password": "replace-me"
+  },
+  "contact": {
+    "email": "hi@evandroripka.dev"
+  },
+  "mail": {
+    "scheme": "smtps",
+    "host": "smtp.example.com",
+    "port": 465,
+    "username": "website@example.com",
+    "password": "replace-me",
+    "fromAddress": "website@example.com",
+    "fromName": "Evandro Ripka Website"
+  }
+}

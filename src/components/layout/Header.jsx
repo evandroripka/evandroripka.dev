@@ -1,56 +1,57 @@
-import Button from '../ui/Button'
-
-const navItems = [
-  { label: 'Projects', href: '#projects' },
-  { label: 'About', href: '#about' },
-  { label: 'Journey', href: '#journey' },
-  { label: 'Contact', href: '#contact' },
-]
+import { useState } from 'react'
+import { navItems } from '../../data/siteContent'
+import BrandMark from '../ui/BrandMark'
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false)
+  const isHome = window.location.pathname === '/'
+
   return (
-    <header className="fixed left-0 top-0 z-50 w-full px-4 pt-4">
-      <div className="mx-auto flex max-w-content items-center justify-between rounded-full border border-border bg-black/30 px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:border-border-strong">
-        <a
-          href="/"
-          className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.24em] text-text-primary"
-        >
-          <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent shadow-glow" />
-          <span className="transition-colors duration-300 group-hover:text-accent">
-  Evandro Ripka
-</span>
-        </a>
-
-        <nav className="hidden items-center gap-8 md:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm text-text-secondary transition-all duration-300 hover:text-text-primary hover:-translate-y-[1px]"
-            >
-              {item.label}
+    <header className="header">
+      <div className="pp-container">
+        <nav className="navbar custom-navbar" role="navigation" aria-label="Main Navigation">
+          <div className="navbar-brand">
+            <a href="/" className="navbar-item" aria-label="Evandro Ripka home">
+              <BrandMark />
+              <span className="name-brand first-font light-text">EVANDRO RIPKA</span>
             </a>
-          ))}
+
+            <button
+              type="button"
+              className={['navbar-burger', isOpen ? 'is-active' : ''].filter(Boolean).join(' ')}
+              aria-label="menu"
+              aria-expanded={isOpen}
+              aria-controls="navbar-navigation"
+              onClick={() => setIsOpen((current) => !current)}
+            >
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+            </button>
+          </div>
+
+          <div id="navbar-navigation" className={['navbar-menu', isOpen ? 'is-active' : ''].filter(Boolean).join(' ')}>
+            <div className="navbar-center">
+              {navItems.map((item) =>
+                item.href ? (
+                  <a key={item.label} className="navbar-item menu-text" href={navHref(item.href, isHome)} onClick={() => setIsOpen(false)}>
+                    <span className="pp-glitch-hover">{item.label}</span>
+                  </a>
+                ) : (
+                  <span key={item.label} className="navbar-item menu-text pp-nav-item-disabled" aria-disabled="true">
+                    {item.label}
+                  </span>
+                ),
+              )}
+            </div>
+          </div>
         </nav>
-
-        <div className="hidden md:block">
-          <Button as="a" href="#contact" variant="secondary" className="px-5 py-2.5">
-            Let’s Talk
-          </Button>
-        </div>
-
-        <button
-          type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-text-primary transition hover:bg-white/5 md:hidden"
-          aria-label="Open menu"
-        >
-          <span className="flex flex-col gap-1.5">
-            <span className="block h-[2px] w-5 bg-current" />
-            <span className="block h-[2px] w-5 bg-current" />
-            <span className="block h-[2px] w-5 bg-current" />
-          </span>
-        </button>
       </div>
     </header>
   )
+}
+
+function navHref(href, isHome) {
+  return href.startsWith('#') && !isHome ? `/${href}` : href
 }

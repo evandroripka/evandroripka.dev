@@ -1,0 +1,446 @@
+{
+    "bubble-clean": {
+        "title": "Bubble Clean",
+        "label": "Operational Platform / Service Management System",
+        "meta_title": "Bubble Clean - Operational Platform & Service Management System",
+        "meta_description": "A custom operational platform built for a cleaning company to manage clients, properties, cleaners, service reports, payments, loyalty, referrals, and route planning.",
+        "subtitle": "An operational platform built to manage cleaning services, clients, properties, cleaners, payments, reports, loyalty, referrals, and routes.",
+        "cover": {
+            "image": "images/covers-project/bubble-clean/bubble-clean-cover.webp",
+            "hover_video": null,
+            "alt": "Bubble Clean operational platform project cover"
+        },
+        "home_copy": [
+            "An operational web platform for a cleaning company, built to manage clients, properties, staff, scheduled services, payments, before-and-after records, loyalty, referrals, and cleaner routes."
+        ],
+        "cta": "View operational platform case",
+        "role": "Product strategy, system architecture, full-stack development, interface design, operational workflow design",
+        "stack": [
+            "React",
+            "TypeScript",
+            "Node.js",
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "hero_copy": [
+            "Bubble Clean started as a simple landing page and admin system. After the first discovery conversation, it became clear that the business needed more than a static website or a backend only the administrator could use.",
+            "The result was a self-supporting platform designed around three types of users: admin, client, and cleaner - each with its own role, workflow, and reason to interact with the system."
+        ],
+        "snapshot": {
+            "Type": "Operational Platform / Service Management System / Client Portal",
+            "Role": "Product strategy, system architecture, full-stack development, interface design, operational workflow design",
+            "Stack": "React, TypeScript, Node.js, HTML, CSS, JavaScript",
+            "Deliverables": "Admin dashboard, client portal, cleaner portal, property management, service scheduling, payment links, service reports, before-and-after photos, loyalty system, referral system, preferred cleaner logic, check-in/check-out, route planning"
+        },
+        "sections": {
+            "Context": [
+                "A cleaning company needed a website and a management system to organize clients, properties, services, employees, and scheduled work.",
+                "The initial idea was straightforward: create a landing page and a separate admin area where the business owner could manage the operation. But once the workflow was mapped, the opportunity became much bigger.",
+                "Instead of building a system that depended entirely on the administrator, the platform was designed to let clients and cleaners participate directly in the process - creating a more transparent, useful, and scalable experience for everyone involved."
+            ],
+            "Challenge": [
+                "The challenge was to move beyond a traditional admin panel.",
+                "The company needed a way to manage the operation internally, but also give clients access to their own properties, service history, payments, loyalty rewards, and service records.",
+                "Cleaners also needed a practical interface to check in, check out, track work, understand scheduled jobs, view estimated earnings, and follow a route sequence throughout the day."
+            ],
+            "Solution": [
+                "I built a multi-role platform with dedicated experiences for admins, clients, and cleaners.",
+                "Admins can manage the full operation. Clients can control their properties, view scheduled and completed services, access payment links, review reports, see before-and-after photos, rate services, choose a preferred cleaner, and use loyalty or referral benefits.",
+                "Cleaners can access their own portal, check in and out of each property, track service time, view assigned jobs, manage estimated earnings, and use route planning connected to Google Maps."
+            ]
+        },
+        "built": [
+            {
+                "title": "Admin Operations Hub",
+                "text": "A centralized area where the company can manage clients, properties, services, cleaners, scheduled jobs, and operational data."
+            },
+            {
+                "title": "Client Portal",
+                "text": "A dedicated interface where clients can manage properties, access service history, review completed cleanings, and see details about what was done."
+            },
+            {
+                "title": "Service Reports",
+                "text": "Reports showing service date, cleaning type, cleaner, total time, and before-and-after photos for each completed job."
+            },
+            {
+                "title": "Payment and Package Flow",
+                "text": "Support for one-time cleaning payments and recurring packages, with payment links available inside the client panel."
+            },
+            {
+                "title": "Loyalty System",
+                "text": "A points-based loyalty area where clients earn rewards as they continue using the service."
+            },
+            {
+                "title": "Referral System",
+                "text": "Clients can invite new customers through a referral link and earn additional rewards while the referred customer remains active."
+            },
+            {
+                "title": "Cleaner Portal",
+                "text": "A dedicated workspace for cleaners to view scheduled properties, check in, check out, track earnings, and manage their assigned work."
+            },
+            {
+                "title": "Intelligent Route Planning",
+                "text": "A route workflow connected to Google Maps, allowing cleaners to view the houses they need to clean and check the route sequence for the day."
+            },
+            {
+                "title": "Preferred Cleaner Logic",
+                "text": "Clients can define a preferred cleaner, helping the company create a more personal and consistent service experience."
+            }
+        ],
+        "integrations": [
+            {
+                "title": "React",
+                "text": "Frontend structure for the platform interfaces, including admin, client, and cleaner experiences."
+            },
+            {
+                "title": "TypeScript",
+                "text": "Typed application logic to improve maintainability and reduce avoidable implementation errors."
+            },
+            {
+                "title": "Node.js",
+                "text": "Backend logic for the platform, user roles, data operations, and service workflows."
+            },
+            {
+                "title": "Google Maps Integration",
+                "text": "Used for cleaner route planning and daily job navigation."
+            },
+            {
+                "title": "Square Payment Links",
+                "text": "Used to support payment access inside the client workflow."
+            }
+        ],
+        "media": [
+            {
+                "title": "Admin Dashboard",
+                "caption": "The admin area centralizes clients, properties, cleaners, services, and scheduled work."
+            },
+            {
+                "title": "Client Property Management",
+                "caption": "Clients can manage their own properties and access service-related information without depending only on the administrator."
+            },
+            {
+                "title": "Service Report",
+                "caption": "Completed services include date, type of cleaning, cleaner, total time, and before-and-after records."
+            },
+            {
+                "title": "Cleaner Portal",
+                "caption": "Cleaners can check in, check out, view assigned jobs, and follow their daily workflow."
+            },
+            {
+                "title": "Route Planning",
+                "caption": "Route planning helps cleaners understand the day sequence of houses and available paths."
+            }
+        ],
+        "outcome": [
+            "Bubble Clean became more than a website and admin panel.",
+            "The platform now supports the business operation, gives clients more control and visibility, and helps cleaners understand their work, schedule, and earning opportunities.",
+            "For the company, the system creates a clearer operational structure. For clients, it provides transparency and convenience. For cleaners, it makes the service flow easier to follow and more accountable."
+        ],
+        "final_cta": {
+            "title": "Need a system that supports a real operation?",
+            "copy": "I build custom platforms around the way your business actually works - not just screens, but workflows, roles, logic, and user experiences that make the operation clearer.",
+            "cta": "Request a project review"
+        }
+    },
+    "euquero-milhas": {
+        "title": "EuQueroMilhas",
+        "label": "Marketplace / Payments / Transaction Platform",
+        "meta_title": "EuQueroMilhas - Airline Miles Marketplace & Transaction Platform",
+        "meta_description": "A custom marketplace platform built to organize airline miles transactions with offers, quotes, negotiations, chat, payments, wallet tracking, reports, and user ratings.",
+        "subtitle": "A marketplace platform built to bring structure, trust, and operational flow to airline miles transactions.",
+        "cover": {
+            "image": "images/covers-project/euqueromilhas/cover.webp",
+            "hover_video": null,
+            "alt": "EuQueroMilhas marketplace project cover"
+        },
+        "home_copy": [
+            "A marketplace designed to bring structure, trust, and operational flow to airline miles transactions that used to happen informally through WhatsApp and Telegram groups.",
+            "Users can create offers, request quotes, negotiate through chat, complete payments, track wallet activity, and rate each transaction inside one platform."
+        ],
+        "cta": "View marketplace case",
+        "role": "Full-stack development, marketplace logic, payment flow, wallet structure, user experience, server configuration",
+        "stack": [
+            "Laravel",
+            "MySQL",
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Mercado Pago API",
+            "CEP API",
+            "Airports API",
+            "Linux"
+        ],
+        "hero_copy": [
+            "EuQueroMilhas was created to organize airline miles transactions that were happening informally through WhatsApp and Telegram groups in Brazil.",
+            "The platform was designed to connect people who buy, sell, or quote airline miles and tickets through a more structured experience - with offers, negotiations, chat, payments, wallet tracking, reports, and user ratings inside one system."
+        ],
+        "snapshot": {
+            "Type": "Marketplace / Payments / Wallet / Transaction Platform",
+            "Role": "Full-stack development, marketplace logic, payment flow, wallet structure, user experience, server configuration",
+            "Stack": "Laravel, MySQL, HTML, CSS, JavaScript, Mercado Pago API, CEP API, Airports API, Linux server configuration",
+            "Deliverables": "Marketplace flow, offer listings, quote requests, buy/sell flow, negotiation system, chat, payment flow, wallet, withdrawal request logic, transaction reports, user ratings, external API integrations, Linux server setup"
+        },
+        "sections": {
+            "Context": [
+                "The idea came from a real market behavior: airline miles transactions were often handled inside private groups, informal conversations, and fragmented tools.",
+                "Experienced users could negotiate through those channels, but the process was difficult to scale, hard to organize, and not accessible enough for people who did not already understand how airline miles worked.",
+                "The opportunity was to turn that informal flow into a platform where users, buyers, sellers, and travel agencies could interact through a more organized and trustworthy process."
+            ],
+            "Challenge": [
+                "The main challenge was not only listing offers. The platform needed to support different types of users and different levels of experience.",
+                "Some users already knew how to buy and sell miles. Others only wanted to request a quote without having all final travel details. Travel agencies needed a way to estimate values and connect with sellers before having full customer information.",
+                "The system also needed to reduce friction and uncertainty by centralizing negotiation, payment, confirmation, wallet tracking, and user reputation."
+            ],
+            "Solution": [
+                "I built a marketplace with three main offer segments: quote, buy, and sell.",
+                "The quote flow allows users or travel agencies to provide basic trip details, such as passenger count, destination, and travel dates, and receive offers without needing to understand the full airline miles process.",
+                "Once a transaction moves forward, users can chat, finalize details, complete payment, track funds, confirm transaction steps, and rate each other after the process."
+            ]
+        },
+        "built": [
+            {
+                "title": "Marketplace Offer Structure",
+                "text": "A platform structure where users can list offers, request quotes, buy miles-related services, and sell available miles."
+            },
+            {
+                "title": "Quote Flow",
+                "text": "A simplified flow for users or travel agencies that need estimated values before having all final passenger details."
+            },
+            {
+                "title": "Buy and Sell Flow",
+                "text": "Dedicated flows for experienced users who want to buy or sell airline miles and negotiate directly through the platform."
+            },
+            {
+                "title": "Negotiation System",
+                "text": "Users can make proposals, respond to offers, and move transactions forward inside the platform instead of relying on scattered conversations."
+            },
+            {
+                "title": "Direct Chat",
+                "text": "A chat flow that keeps negotiation and communication connected to the transaction context."
+            },
+            {
+                "title": "Payment Flow",
+                "text": "A payment process integrated with the platform so transactions can move from negotiation to payment without relying on disconnected tools."
+            },
+            {
+                "title": "Wallet and Withdrawal Logic",
+                "text": "Users can track earnings, view available balance, and request withdrawals after the transaction conditions are completed."
+            },
+            {
+                "title": "Transaction Reports",
+                "text": "A reporting area for users to follow their transaction activity and understand the status of each deal."
+            },
+            {
+                "title": "User Ratings",
+                "text": "A rating system that allows users to evaluate each other after a transaction, helping the platform build more trust over time."
+            }
+        ],
+        "integrations": [
+            {
+                "title": "Laravel",
+                "text": "Core backend logic, marketplace structure, transaction flows, business rules, and application architecture."
+            },
+            {
+                "title": "MySQL",
+                "text": "Database structure for users, offers, transactions, wallet records, reports, ratings, and platform data."
+            },
+            {
+                "title": "Mercado Pago API",
+                "text": "Payment integration used to support transaction payments inside the platform flow."
+            },
+            {
+                "title": "CEP API",
+                "text": "Address and location data support where needed inside user or transaction flows."
+            },
+            {
+                "title": "Airports API",
+                "text": "Airport-related data used to support travel, quote, and destination-related workflows."
+            }
+        ],
+        "media": [
+            {
+                "title": "Marketplace Listings",
+                "caption": "Users can create and browse offers based on the transaction type: quote, buy, or sell."
+            },
+            {
+                "title": "Quote Request Flow",
+                "caption": "The quote flow helps users and travel agencies receive estimates using simple trip information."
+            },
+            {
+                "title": "Negotiation and Chat",
+                "caption": "Negotiation stays connected to the transaction through an integrated chat experience."
+            },
+            {
+                "title": "Payment Flow",
+                "caption": "Transactions can move from proposal to payment without depending on disconnected external processes."
+            },
+            {
+                "title": "Wallet",
+                "caption": "Users can track earnings, available balance, and withdrawal requests inside the platform."
+            },
+            {
+                "title": "Transaction Reports",
+                "caption": "Reports help users follow activity, status, and transaction history."
+            }
+        ],
+        "outcome": [
+            "EuQueroMilhas transformed an informal group-based process into a structured marketplace experience.",
+            "Instead of scattered negotiations across messages, payments, and third-party tools, the platform creates a single place for users to list offers, request quotes, negotiate, complete payments, track funds, and evaluate transactions.",
+            "The system supports both experienced airline miles users and people who need a simpler entry point into the process, creating a more organized experience for buyers, sellers, and travel agencies."
+        ],
+        "final_cta": {
+            "title": "Need a marketplace with real transaction logic?",
+            "copy": "I build custom marketplace systems with the workflows, rules, payments, user roles, and operational logic needed to support real platform behavior.",
+            "cta": "Request a project review"
+        }
+    },
+    "pressplay-lms": {
+        "title": "PressPlay LMS",
+        "label": "Custom LMS / WordPress Plugin / WooCommerce Platform",
+        "meta_title": "PressPlay LMS - Custom WordPress & WooCommerce Learning Platform",
+        "meta_description": "A custom WordPress and WooCommerce learning platform built for a beauty studio to sell courses, manage students, track progress, integrate Vimeo videos, and issue certificates.",
+        "subtitle": "A custom WordPress/WooCommerce learning platform built to sell, manage, and deliver courses inside the client website.",
+        "cover": {
+            "image": "images/covers-project/pressplay-lms/pressplay-lms.webp",
+            "hover_video": null,
+            "alt": "PressPlay LMS custom learning platform project cover"
+        },
+        "home_copy": [
+            "From a local business website to a custom course platform.",
+            "PressPlay LMS was built for a beauty studio that needed more control over how courses were sold, delivered, and experienced - without depending on generic LMS tools or disconnected third-party platforms."
+        ],
+        "cta": "View LMS case",
+        "role": "Custom plugin development, LMS architecture, WooCommerce integration, course experience, interface customization",
+        "stack": [
+            "PHP",
+            "WordPress Hooks",
+            "WooCommerce Hooks",
+            "JavaScript",
+            "CSS",
+            "Vimeo API"
+        ],
+        "hero_copy": [
+            "What started as a simple website for a beauty studio became a custom LMS designed around ownership, flexibility, course sales, student progress, video delivery, and brand experience.",
+            "Instead of forcing the business into a generic third-party course platform, I built a custom WordPress plugin integrated with WooCommerce and Vimeo."
+        ],
+        "snapshot": {
+            "Type": "Custom LMS / WordPress Plugin / WooCommerce Platform",
+            "Role": "Full-stack development, plugin architecture, WooCommerce integration, LMS logic, interface customization",
+            "Stack": "PHP, WordPress Hooks, WooCommerce Hooks, JavaScript, CSS, Vimeo API",
+            "Deliverables": "Custom LMS plugin, course management, teacher management, course categories, included materials, student area, progress tracking, certificates, Vimeo video integration, WooCommerce enrollment flow, custom course pages"
+        },
+        "sections": {
+            "Context": [
+                "A beauty studio in Sao Paulo reached out looking for a website to promote its local business and a way to sell courses based on its professional specialties.",
+                "At first, the project looked like a traditional website plus a course area. But once we analyzed the business model, the limitations became clear: the client needed control over the course experience, the visual identity, the purchase flow, and the way students accessed content."
+            ],
+            "Challenge": [
+                "Most ready-made course platforms created the same problem: they were either too limited in customization, disconnected from the website experience, or expensive once recurring platform costs were added to payment processing fees.",
+                "WordPress LMS plugins were an option, but the ones that could handle the required features depended on premium plans and still did not fully match the client workflow.",
+                "The challenge was to create a learning system that felt native to the website, worked with WooCommerce, supported video lessons, tracked student progress, and allowed the studio to manage courses without depending on an external LMS platform."
+            ],
+            "Solution": [
+                "I built a custom WordPress plugin that turns the website into a course platform.",
+                "The system allows the client to create courses, manage teachers, organize categories, define what is included in each course, customize course pages, deliver video lessons through Vimeo, track student progress, and issue certificates only after completion.",
+                "Courses are connected to WooCommerce, which means the purchase flow stays inside the existing commerce structure. When a course is created, the system can also create the related WooCommerce product and use purchase events to generate student enrollment automatically."
+            ]
+        },
+        "built": [
+            {
+                "title": "Course Management",
+                "text": "A custom admin structure for creating and organizing courses, teachers, categories, included materials, lessons, and certificate settings."
+            },
+            {
+                "title": "Teacher Management",
+                "text": "A dedicated structure for managing teachers connected to course content and presentation."
+            },
+            {
+                "title": "Course Categories",
+                "text": "Category management to organize courses and improve browsing inside the course platform."
+            },
+            {
+                "title": "Included Materials",
+                "text": "A flexible section for showing what each course includes, such as PDF files, exercises, videos, and other learning materials."
+            },
+            {
+                "title": "Custom Course Pages",
+                "text": "Personalized pages for course listings, course details, and lesson pages, keeping the experience inside the client website."
+            },
+            {
+                "title": "Student Area",
+                "text": "A dedicated student area where users can access enrolled courses, follow their progress, and continue lessons inside the website."
+            },
+            {
+                "title": "Progress Tracking",
+                "text": "The platform tracks progress by student and course, allowing the system to control completion and certificate eligibility."
+            },
+            {
+                "title": "Certificate Generation",
+                "text": "Each course can have its own certificate configuration, with visual customization through CSS and automatic issuing after all lessons are completed."
+            },
+            {
+                "title": "WooCommerce Enrollment Flow",
+                "text": "Courses are treated as WooCommerce products, allowing purchases to trigger enrollment logic and connect the learning experience to the existing checkout flow."
+            }
+        ],
+        "integrations": [
+            {
+                "title": "PHP",
+                "text": "Core plugin logic, custom LMS structure, enrollment rules, progress tracking, and certificate behavior."
+            },
+            {
+                "title": "WordPress Hooks",
+                "text": "Custom integration with the WordPress environment, admin flows, custom content structures, and page rendering."
+            },
+            {
+                "title": "WooCommerce Hooks",
+                "text": "Purchase events, course-product relationship, enrollment automation, and integration with the checkout flow."
+            },
+            {
+                "title": "JavaScript",
+                "text": "Interface behavior, dynamic interactions, and course experience enhancements."
+            },
+            {
+                "title": "Vimeo API",
+                "text": "Video delivery integration and embedded player rendering inside the lesson pages."
+            }
+        ],
+        "media": [
+            {
+                "title": "Course Catalog",
+                "caption": "Courses are published inside the client website, keeping the learning experience connected to the brand."
+            },
+            {
+                "title": "Course Detail Page",
+                "caption": "Each course page is generated from custom fields and structured content, giving the client control over the presentation."
+            },
+            {
+                "title": "Included Materials",
+                "caption": "The client can show what each course includes, such as files, exercises, videos, and supporting materials."
+            },
+            {
+                "title": "Lesson Page with Vimeo Player",
+                "caption": "Video lessons are delivered through Vimeo and rendered inside the platform, without sending students to an external learning environment."
+            },
+            {
+                "title": "Student Area",
+                "caption": "Students can access enrolled courses, track progress, and continue learning from a dedicated account area."
+            },
+            {
+                "title": "Certificate",
+                "caption": "Certificates are issued only after course completion and can be customized per course."
+            }
+        ],
+        "outcome": [
+            "The final result was an owned learning platform built inside the client WordPress ecosystem.",
+            "Instead of relying on a disconnected LMS, the studio gained control over course management, student access, video delivery, progress tracking, certificates, and the sales flow through WooCommerce.",
+            "PressPlay LMS gave the client something generic tools could not: control - over the course structure, the visual experience, the student journey, the checkout flow, and the way learning content lives inside the brand website."
+        ],
+        "final_cta": {
+            "title": "Need a custom WordPress, WooCommerce, or LMS experience?",
+            "copy": "I build platforms that go beyond generic plugins - designed around your product, your users, and the way your business actually works.",
+            "cta": "Request a project review"
+        }
+    }
+}
